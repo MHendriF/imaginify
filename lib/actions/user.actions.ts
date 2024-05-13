@@ -24,10 +24,10 @@ export async function createUser(user: CreateUserParams) {
 export async function getUserById(userId: string) {
   try {
     await connectToDatabase();
-    console.log("getUserById: ", userId);
+    //console.log("getUserById: ", userId);
 
     const user = await User.findOne({ clerkId: userId });
-    console.log("user: ", user);
+    //console.log("user: ", user);
 
     if (!user) throw new Error("User not found");
 
@@ -41,7 +41,7 @@ export async function getUserById(userId: string) {
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {
     await connectToDatabase();
-    console.log("updateUser: ", clerkId);
+    //console.log("updateUser: ", clerkId);
 
     const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
       new: true,
@@ -59,7 +59,7 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
 export async function deleteUser(clerkId: string) {
   try {
     await connectToDatabase();
-    console.log("deleteUser: ", clerkId);
+    //console.log("deleteUser: ", clerkId);
 
     // Find user to delete
     const userToDelete = await User.findOne({ clerkId });
@@ -82,7 +82,7 @@ export async function deleteUser(clerkId: string) {
 export async function updateCredits(userId: string, creditFee: number) {
   try {
     await connectToDatabase();
-    console.log("updateCredits: ", userId);
+    //console.log("updateCredits: ", userId);
     const updatedUserCredits = await User.findOneAndUpdate(
       { _id: userId },
       { $inc: { creditBalance: creditFee } },

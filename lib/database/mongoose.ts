@@ -17,7 +17,6 @@ export const connectToDatabase = async () => {
   if (cached.conn) {
     return cached.conn;
   }
-  console.log("MONGODB_URL : ", MONGODB_URL);
   if (!MONGODB_URL) throw new Error("Missing MONGODB_URL");
   cached.promise =
     cached.promise ||
@@ -27,6 +26,5 @@ export const connectToDatabase = async () => {
     });
 
   cached.conn = await cached.promise;
-  console.log(cached.conn);
   return cached.conn;
 };
