@@ -27,7 +27,7 @@ export default function MediaUploader({
       ...prevState,
       publicId: res?.info?.public_id,
       width: res?.info?.width,
-      heigth: res?.info?.height,
+      height: res?.info?.height,
       secureURL: res?.info?.secure_url,
     }));
 

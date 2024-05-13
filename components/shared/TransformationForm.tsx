@@ -101,6 +101,9 @@ export default function TransformationForm({
         color: values.color,
       };
 
+      console.log("image: ", image);
+      console.log("imageData: ", imageData);
+
       if (action === "Add") {
         try {
           const newImage = await addImage({
@@ -147,7 +150,7 @@ export default function TransformationForm({
     onChangeField: (value: string) => void
   ) => {
     const imageSize = aspectRatioOptions[value as AspectRatioKey];
-    console.log(imageSize);
+    console.log("imageSize: ", imageSize);
     setImage((prevState: any) => ({
       ...prevState,
       aspectRatio: imageSize.aspectRatio,
