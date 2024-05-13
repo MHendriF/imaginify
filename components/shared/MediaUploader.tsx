@@ -8,7 +8,7 @@ import Image from "next/image";
 
 type MediaUploaderProps = {
   onValueChange: (value: string) => void;
-  setImage: (value: any) => void;
+  setImage: React.Dispatch<any>;
   image: any;
   publicId: string;
   type: string;
@@ -28,7 +28,7 @@ export default function MediaUploader({
       publicId: res?.info?.public_id,
       width: res?.info?.width,
       heigth: res?.info?.height,
-      secureUrl: res?.info?.secure_url,
+      secureURL: res?.info?.secure_url,
     }));
 
     onValueChange(res?.info?.public_id);
